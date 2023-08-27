@@ -15,7 +15,8 @@ namespace RPSLS
         //Constructor
         public Game()
         {
-
+            this.playerOne = null;
+            this.playerTwo = null;
         }
 
         //Member Methods (CAN DO)
@@ -38,15 +39,33 @@ namespace RPSLS
 
         public int ChooseNumberOfHumanPlayers()
         {
-            return 0;
+            Console.WriteLine("Input number of players!");
+
+            int numberOfPlayers = int.Parse(Console.ReadLine());
+
+            while (numberOfPlayers != 1 && numberOfPlayers != 2)
+            {
+                Console.WriteLine("Invalid input!! Please choose 1 or 2 players!");
+                numberOfPlayers = int.Parse(Console.ReadLine());
+            }
+            return numberOfPlayers;
         }
 
         public void CreatePlayerObjects(int numberOfHumanPlayers)
         {
-
+            if (numberOfHumanPlayers == 1)
+            {
+                playerOne = new HumanPlayer("Player 1");
+                playerTwo = new ComputerPlayer("Computer");
+            }
+            else if (numberOfHumanPlayers == 2)
+            {
+                playerOne = new HumanPlayer("Player 1");
+                playerTwo = new HumanPlayer("Player 2");
+            }
         }
 
-        public void CompareGestures()
+        public virtual void CompareGestures()
         {
 
         }
@@ -59,6 +78,7 @@ namespace RPSLS
         public void RunGame()
         {
             WelcomeMessage();
+            ChooseNumberOfHumanPlayers();
         }
     }
 }
