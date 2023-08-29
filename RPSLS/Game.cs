@@ -11,12 +11,14 @@ namespace RPSLS
         //Member Variabes (HAS A)
         public Player playerOne;
         public Player playerTwo;
+        
+        
 
         //Constructor
         public Game()
         {
-            this.playerOne = null;
-            this.playerTwo = null;
+
+            
         }
 
         //Member Methods (CAN DO)
@@ -41,32 +43,39 @@ namespace RPSLS
         {
             Console.WriteLine("Input number of players!");
 
-            int numberOfPlayers = int.Parse(Console.ReadLine());
+            int numberOfHumanPlayers = int.Parse(Console.ReadLine());
 
-            while (numberOfPlayers != 1 && numberOfPlayers != 2)
+            while (numberOfHumanPlayers != 1 && numberOfHumanPlayers != 2)
             {
                 Console.WriteLine("Invalid input!! Please choose 1 or 2 players!");
-                numberOfPlayers = int.Parse(Console.ReadLine());
+                numberOfHumanPlayers = int.Parse(Console.ReadLine());
             }
-            return numberOfPlayers;
+            return numberOfHumanPlayers;
         }
 
         public void CreatePlayerObjects(int numberOfHumanPlayers)
         {
             if (numberOfHumanPlayers == 1)
             {
-                playerOne = new HumanPlayer("Player 1");
-                playerTwo = new ComputerPlayer("Computer");
+                playerOne = new HumanPlayer("player 1");
+                playerTwo = new ComputerPlayer("computer");
             }
             else if (numberOfHumanPlayers == 2)
             {
-                playerOne = new HumanPlayer("Player 1");
-                playerTwo = new HumanPlayer("Player 2");
+                playerOne = new HumanPlayer("player 1");
+                playerTwo = new HumanPlayer("player 2");
             }
         }
 
         public virtual void CompareGestures()
         {
+            Console.WriteLine("Please choose a gesture: ROCK, PAPER, SCISSORS, LIZARD, OR SPOCK!");
+            
+            
+           
+
+
+
 
         }
 
@@ -79,6 +88,10 @@ namespace RPSLS
         {
             WelcomeMessage();
             ChooseNumberOfHumanPlayers();
+            CompareGestures();
+            
+            
+            
         }
     }
 }
