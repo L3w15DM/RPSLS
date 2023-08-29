@@ -3,9 +3,11 @@ namespace RPSLS
 {
 	internal class HumanPlayer : Player
 	{
+        
+
         public HumanPlayer(string name) : base(name)
         {
-            this.name = name;
+            name = "";
         }
 
 
@@ -13,34 +15,13 @@ namespace RPSLS
         public override void ChooseGesture()
         {
 
+            Console.WriteLine("Choose your gesture: ROCK, PAPER, SCISSORS, LIZARD, or SPOCK!");
 
-            List<string> gestures = new List<string>
-            {
-                "rock",
-                "paper",
-                "scrissors",
-                "lizard",
-                "spock"
-            };
+            chosenGesture = Console.ReadLine();
 
-            Console.WriteLine("Choose your gesture:");
+            Console.WriteLine($"Player choice: {chosenGesture}");
 
 
-            for (int i = 0; i < gestures.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {gestures[i]}");
-            }
-
-            int choiceIndex = int.Parse(Console.ReadLine()) - 1;
-
-            while (choiceIndex < 0 || choiceIndex >= gestures.Count)
-            {
-                Console.WriteLine("Invalid input. Choose a valid gesture.");
-                choiceIndex = int.Parse(Console.ReadLine()) - 1;
-                
-            }
-
-            
         }
     }
 }
