@@ -7,7 +7,7 @@ namespace RPSLS
 
         public HumanPlayer(string name) : base(name)
         {
-            name = "";
+            
         }
 
 
@@ -17,10 +17,12 @@ namespace RPSLS
 
             Console.WriteLine("Choose your gesture: ROCK, PAPER, SCISSORS, LIZARD, or SPOCK!");
 
+            
             chosenGesture = Console.ReadLine();
-            chosenGesture.ToUpper();
+            
 
-            Console.WriteLine($"{name}'s choice: {chosenGesture}");
+
+            Console.WriteLine($"{name}'s choice: {chosenGesture.ToLower()}");
 
 
         }

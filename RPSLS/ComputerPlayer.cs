@@ -5,7 +5,7 @@ namespace RPSLS
 	{
 		public ComputerPlayer(string name) : base(name)
         {
-            this.name = "";
+            
             
 		}
 
@@ -13,18 +13,18 @@ namespace RPSLS
         {
             List<string> gestures = new List<string>
             {
-                "ROCK",
-                "PAPER",
-                "SCISSORS",
-                "LIZARD",
-                "SPOCK"
+                "rock",
+                "paper",
+                "scissors",
+                "lizard",
+                "spock"
             };
 
             Random rnd = new Random();
             int random = rnd.Next(gestures.Count);
 
             chosenGesture = gestures[random];
-            chosenGesture.ToUpper();
+            chosenGesture.ToLower();
             Console.WriteLine($"Computers choice: {gestures[random]}");
             
         }
